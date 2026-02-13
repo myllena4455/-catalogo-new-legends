@@ -82,93 +82,9 @@ function copiarFicha() {
 }
 
 // Mapeamento de nomes de itens para arquivos de imagem (normaliza acentos/case)
-document.addEventListener('DOMContentLoaded', () => {
-    const normalize = s => s
-        .normalize('NFD')
-        .replace(/\p{Diacritic}/gu, '')
-        .toLowerCase()
-        .trim();
-
-    const mapping = {
-        'a lenda de um ninja determinado': 'img/livro.jpg',
-        'alto-falante ressonante de eco': 'img/alto-falante.png',
-        'arco simples': 'img/Arco.png',
-        'argolas de captura': 'img/Argolas-de-captura.png',
-        'atirador de dardos de injecao': 'img/Atirador-de-dardos.png',
-        'balista': 'img/balista.png',
-        'besta (arma)': 'img/besta.png',
-        'bisturi': 'img/bisturi.png',
-        'braceletes de ferro': 'img/bracelete.png',
-        'braco de cabo retratil': 'img/retrátil.png',
-        'braco de broca': 'img/broca.png',
-        'bo': 'img/bola-de-papel.png',
-        'bö': 'img/bola-de-papel.png',
-        'cabaca de areia': 'img/cabaca.png',
-        'dako': 'img/Dako.PNG',
-        'dako.': 'img/Dako.PNG',
-        'dakö': 'img/Dako.PNG',
-        'escopo': 'img/radio.png',
-        'escudo simples': 'img/escudo.png',
-        'katanas': 'img/katana normal.png',
-        'benihisago': 'img/Benihisago.png',
-        'bashosen': 'img/Bashosen.png',
-        'bashösen': 'img/Bashosen.png',
-        'gunbai': 'img/Gunbai.png',
-        'kusanagi orochi': 'img/Kusanagioroshi.png',
-        'bomba de fumaca': 'img/fumaça.png',
-        'bombadefumaca': 'img/fumaça.png',
-        'pilulas de racao militar': 'img/pilula.png',
-        'pilulas de racao militar': 'img/pilula.png',
-        'agua do heroi': 'img/militar.png'
-        , 'bola de papeis bombas': 'img/bola-de-papel.png'
-        , 'bomba de gelo': 'img/gelo.png'
-        , 'bomba de luz': 'img/baner.jpg'
-        , 'bomba de pimenta': 'img/pimenta.png'
-        , 'brahma': 'img/fundo.png'
-        , 'cachimbo de bolhas': 'img/invocação.png'
-        , 'cogumelo de moldagem': 'img/cogumelo.png'
-        , 'escudo retratil': 'img/retrátil.png'
-        , 'kusanagi sasuke': 'img/Kusanagioroshi.png'
-        , 'etiqueta de selamento': 'img/selo.png'
-        , 'foice de lamina tripla (retratil)': 'img/foice3.png'
-        , 'foice': 'img/foice.png'
-        , 'garra': 'img/Garra.png'
-        , 'guarda-chuva': 'img/Guarda.png'
-        , 'himarekarei': 'img/Hiramekarei.png'
-        , 'joryo': 'img/joryo.png'
-        , 'kunai': 'img/kunai.png'
-        , 'livro bingo': 'img/bingo.png'
-        , 'mascara shinigami': 'img/mascara.png'
-        , 'nunchaku': 'img/nunchako.png'
-        , 'nuibari': 'img/Nuibari.png'
-        , 'orelhas de gato': 'img/gato.png'
-        , 'perfume da flor da lua nova': 'img/perfume.png'
-        , 'pergaminhos': 'img/pergaminhos.png'
-        , 'pergaminho da lua vermelha': 'img/lua vermelha.png'
-        , 'pergaminho de contrato': 'img/contrato.png'
-        , 'pergaminho de invocacao': 'img/invocação.png'
-        , 'pomada secreta do cla hyuga': 'img/pomada.png'
-        , 'pilulas de genjutsu': 'img/pilula.png'
-        , 'radio': 'img/radio.png'
-        , 'senbon': 'img/sebon.png'
-        , 'shibuki': 'img/Shibuki.png'
-        , 'shuriken': 'img/shuriken.png'
-        , 'tanto': 'img/tanto.png'
-        , 'tobishachimaru': 'img/Tobishachimaru.png'
-        , 'veneno': 'img/veneno.png'
-        , 'veneno de sasori': 'img/veneno.png'
-    };
-
-    document.querySelectorAll('.card-item').forEach(card => {
-        const nomeEl = card.querySelector('.item-nome');
-        const imgEl = card.querySelector('img.item-foto');
-        if (!nomeEl || !imgEl) return;
-        const nome = normalize(nomeEl.textContent || '');
-        if (mapping[nome]) {
-            imgEl.src = mapping[nome];
-        }
-    });
-});
+// Removido: mapeamento automático de imagens.
+// Agora as imagens são determinadas pelo atributo `src` em cada <img> dentro do HTML.
+// Se quiser que eu atualize algum `src` diretamente no HTML, me diga quais ou peça para aplicar as correções sugeridas (veja `index.fixed.html`).
 
 // Função de busca usada pelo input `searchInput`
 function searchItem() {
