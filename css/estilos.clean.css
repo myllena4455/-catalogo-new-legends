@@ -1,0 +1,738 @@
+/* ==========================================================================
+   1. ESTILIZAÇÃO GERAL E RESET
+   ========================================================================== */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #ff6400;
+  font-family: 'Poppins', sans-serif;
+}
+
+.fundo-personalizado::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-image: url('../img/fundo.png');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.3;
+  z-index: -1;
+}
+
+/* ==========================================================================
+   2. MENU LATERAL E NAVEGAÇÃO
+   ========================================================================== */
+.bt_menu { display: none !important; }
+
+.menu-lateral {
+  width: 260px;
+  height: 100vh;
+  background-color: #121212;
+  position: fixed;
+  left: -260px;
+  top: 0;
+  transition: all 0.4s ease;
+  z-index: 9999;
+}
+
+#bt_menu:checked ~ .menu-lateral { left: 0 !important; }
+
+.logo-menu {
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.2), #121212), url('../img/baner.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 50px 10px;
+  text-align: center;
+}
+
+.logo-menu h3 {
+  color: #fff;
+  font-family: 'Bangers', cursive;
+  font-size: 30px;
+}
+
+.menu-lateral ul { 
+  list-style: none; 
+  padding: 20px; 
+}
+
+.menu-lateral ul li { 
+  margin-bottom: 25px; 
+}
+
+.menu-lateral ul li a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  padding: 15px; 
+  background: rgba(255,255,255,0.1);
+  border-radius: 12px; 
+  transition: 0.3s;
+}
+
+.menu-lateral ul li a:hover {
+  background: #ff9100;
+  color: #000;
+  transform: translateX(10px); 
+}
+
+.menu-icon {
+  position: fixed;
+  top: 20px; right: 20px;
+  background: #ff9100;
+  color: white !important; 
+  width: 45px; height: 45px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%; z-index: 10000; cursor: pointer;
+  font-size: 24px;
+}
+
+/* ==========================================================================
+   3. CONTEÚDO PRINCIPAL E HOME
+   ========================================================================== */
+.conteudo-principal {
+  flex: 1;
+  padding: 100px 20px 40px;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.aba-conteudo { display: none; }
+.aba-conteudo.active { display: block; animation: fadeIn 0.5s ease; }
+
+.banner-inicio img {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 15px;
+}
+
+.arte-borda {
+    color: #fff;
+    font-size: 14px;
+    line-height: 1.2;
+    margin: 20px 0;
+    font-weight: bold;
+    overflow: hidden;
+}
+
+.historia-rpg {
+    color: #fff;
+    text-align: justify; 
+    padding: 0 10px;
+    margin: 30px 0;
+}
+
+.historia-rpg p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+    font-size: 18px; 
+}
+
+.historia-rpg strong {
+    color: whitesmoke; 
+    display: block;
+    text-align: center;
+    font-size: 20px;
+}
+
+/* RECRUTAMENTO */
+.container-recrutamento {
+  margin-top: 60px; 
+  padding-bottom: 20px;
+}
+
+.btn-ninja-whatsapp {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(135deg, #1e40af, #3b82f6);
+  color: #fff !important;
+  text-decoration: none;
+  padding: 15px 40px;
+  border-radius: 50px;
+  box-shadow: 0 10px 20px rgba(30, 64, 175, 0.4);
+  animation: flutuar 3s ease-in-out infinite;
+}
+
+.btn-ninja-whatsapp .texto-btn { font-family: 'Bangers'; font-size: 22px; }
+
+/* ==========================================================================
+   4. SISTEMAS (RANKS, TREINO, MISSÕES)
+   ========================================================================== */
+.intro-sistemas {
+    color: #fff;
+    font-style: italic;
+    margin-bottom: 30px;
+    padding: 0 10px;
+}
+
+.card-sistema {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid #ff9100;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 25px;
+    color: #fff;
+    text-align: left;
+}
+
+.card-sistema h2 {
+    color: #ff9100;
+    font-family: 'Bangers', cursive;
+    font-size: 26px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(255,145,0,0.3);
+}
+
+.status-rpg code {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #00f2ff; 
+    display: inline-block;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.lista-ranks li {
+    list-style: none;
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+
+.lista-bonus strong {
+    color: #ff9100;
+}
+
+.caixa-obs {
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 3px solid #ff9100;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 0 10px 10px 0;
+    font-size: 16px;
+}
+
+.caixa-obs p {
+    margin-bottom: 10px !important;
+    font-style: italic;
+}
+
+.caixa-obs code {
+    background: #000;
+    color: #00f2ff;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.exemplo-treino {
+    background: #000;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 15px 0;
+    border: 1px solid #333;
+}
+
+.exemplo-treino code {
+    color: #00f2ff;
+    font-family: 'Courier New', monospace;
+    font-size: 15px;
+    word-break: break-all; 
+}
+
+.recompensa {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+    border-left: 4px solid #ff9100;
+}
+
+.recompensa strong {
+    color: #00ff64; 
+    font-size: 18px;
+}
+
+/* ==========================================================================
+   5. CLÃS E BIJŪS
+   ========================================================================== */
+.header-principal-clas {
+    text-align: center;
+    padding: 40px 10px;
+    background: radial-gradient(circle, rgba(255,145,0,0.2) 0%, rgba(0,0,0,0) 70%);
+}
+
+.titulo-destaque-rpg {
+    font-family: 'Bangers', cursive;
+    font-size: 42px;
+    letter-spacing: 3px;
+    color: #fff;
+    text-shadow: 0 0 10px #ff9100, 0 0 20px #ff9100, 0 0 30px #ff4400;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.divisor-brilhante {
+    height: 3px;
+    width: 200px;
+    background: linear-gradient(90deg, transparent, #ff9100, transparent);
+    margin: 15px auto;
+}
+
+.card-cla {
+  background: rgba(15, 15, 15, 0.9);
+  border: 1px solid rgba(255, 145, 0, 0.4);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.nome-cla {
+  font-family: 'Bangers', cursive;
+  font-size: 26px;
+  margin: 0;
+  background: linear-gradient(to bottom, #fff 20%, #ff9100 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.8));
+}
+
+.texto-claro {
+  color: #f0f0f0;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-top: 10px;
+}
+
+.simbolo-cla {
+  width: 65px;
+  height: 65px;
+  border: 2px solid #ff9100;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(255, 145, 0, 0.3);
+  background: #000;
+}
+
+/* BIJŪS */
+.foto-biju-render {
+    width: 100%;
+    max-width: 280px; 
+    height: auto;     
+    display: block;
+    margin: 15px auto;
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5)); 
+}
+
+.biju-item {
+    padding: 30px 10px;
+    margin-bottom: 20px;
+}
+
+.divisor-biju {
+    height: 1px;
+    background: linear-gradient(to right, transparent, #ff9100, transparent);
+    margin: 40px 0;
+}
+
+.biju-completa {
+    background: rgba(255, 145, 0, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ff9100;
+    margin-top: 15px;
+    color: #ff9100 !important;
+}
+
+.juubi-bloqueada {
+    font-family: 'Bangers', cursive;
+    font-size: 28px;
+    color: #ff3333;
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* ==========================================================================
+   6. SISTEMA DE LÍDERES
+   ========================================================================== */
+.painel-lideranca {
+    margin-top: 60px;
+    background: linear-gradient(145deg, #0f0f0f, #1a1a1a);
+    border: 2px solid #ffd700;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+}
+
+.lider-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.titulo-lider-premium {
+    font-family: 'Bangers', cursive;
+    color: #ffd700;
+    font-size: 32px;
+    text-shadow: 2px 2px 5px #000;
+    letter-spacing: 2px;
+}
+
+.lider-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.lider-box {
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 4px solid #ff9100;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.lider-box h3 {
+    font-family: 'Bangers', cursive;
+    color: #ff9100;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.lider-box ul { list-style: none; padding: 0; }
+
+.lider-box ul li {
+    margin-bottom: 8px;
+    color: #f0f0f0;
+}
+
+.texto-branco, .lider-box p, .lider-box li {
+    color: #ffffff !important;
+    text-shadow: 1px 1px 2px #000;
+    margin-bottom: 10px;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.label {
+    color: #ff9100;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.cargos-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.cargos-grid span {
+    background: rgba(255, 145, 0, 0.1);
+    border: 1px solid rgba(255, 145, 0, 0.3);
+    padding: 5px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #fff;
+}
+
+/* RECOMPENSAS LÍDER */
+.lider-recompensas-gold {
+    background: linear-gradient(135deg, #ffd700, #b8860b);
+    padding: 2px; 
+    border-radius: 15px;
+    margin-top: 20px;
+}
+
+.recompensa-titulo {
+    background: #000;
+    color: #ffd700;
+    text-align: center;
+    padding: 10px;
+    font-family: 'Bangers', cursive;
+    font-size: 22px;
+    border-radius: 13px 13px 0 0;
+}
+
+.recompensa-grid-ouro {
+    background: #111;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 20px;
+    gap: 10px;
+    border-radius: 0 0 13px 13px;
+}
+
+.premio {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.premio .valor {
+    color: #ffd700;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Bangers', cursive;
+}
+
+.premio .desc {
+    color: #aaa;
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+.obs-luta {
+    text-align: center;
+    font-size: 12px;
+    color: #ffd700;
+    background: #000;
+    padding: 10px;
+    margin: 0;
+    border-radius: 0 0 13px 13px;
+    font-style: italic;
+}
+
+.secao-lideres h2, .secao-lideres h4 {
+    font-family: 'Bangers', cursive;
+    color: #ffd700; 
+    text-shadow: 2px 2px 0px #000;
+    letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   7. OUTROS (SENNIN, MARCAS, RODAPÉ)
+   ========================================================================== */
+.caixa-alerta-sennin {
+    background: rgba(0, 242, 255, 0.1);
+    border: 1px solid #00f2ff;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+    color: #fff;
+    text-align: center;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.caixa-alerta-sennin strong {
+    color: #00f2ff;
+    text-transform: uppercase;
+}
+
+.sub-marca h3 {
+    margin-top: 10px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    font-family: 'Bangers', cursive;
+    font-size: 26px;
+    margin-bottom: 5px;
+}
+
+.rodape-creditos {
+  margin-top: auto;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #ccc;
+  text-align: center;
+}
+
+.divisor-rpg {
+    color: #444;
+    text-align: center;
+    margin: 20px 0;
+}
+/* ESTILO DO BOTÃO DE COPIAR */
+.btn-copiar {
+    background: #222;
+    color: #ff9100;
+    border: 1px solid #ff9100;
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+/* Efeito ao passar o mouse */
+.btn-copiar:hover {
+    background: #ff9100;
+    color: #000;
+    box-shadow: 0 0 10px rgba(255, 145, 0, 0.5);
+}
+
+/* Efeito quando clicado */
+.btn-copiar:active {
+    transform: scale(0.95);
+}
+
+/* Estilo para quando o texto for "Copiado!" */
+.btn-copiar.sucesso {
+    background: #00ff64;
+    border-color: #00ff64;
+    color: #000;
+}
+
+
+/* ==========================================================================
+   8. RESPONSIVIDADE (MOBILE)
+   ========================================================================== */
+.conteudo-principal {
+  padding: 60px 15px 40px 15px; 
+  max-width: 100%; 
+  overflow-x: hidden; 
+}
+
+.banner-inicio img {
+  width: 100%;
+  max-width: 100%; 
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.apresentacao h1 {
+  font-size: 1.5rem; 
+  line-height: 1.2;
+}
+
+.apresentacao p {
+  font-size: 0.9rem;
+  padding: 0 10px;
+}
+
+.btn-ninja-whatsapp {
+  width: 90%; 
+  max-width: 300px; 
+  padding: 15px 20px;
+}
+
+  .card-cla {
+    padding: 15px;
+    display: flex;
+    flex-direction: column; /* Foto em cima, texto embaixo */
+    align-items: center;
+    text-align: center;
+  }
+
+  .cla-header {
+    flex-direction: column; /* Alinha ícone e nome verticalmente */
+    gap: 10px;
+  }
+
+  .nome-cla {
+    font-size: 22px; /* Diminui um pouco para caber em uma linha */
+  }
+
+  .texto-claro {
+    font-size: 14px; /* Letra um pouco menor para não virar um paredão de texto */
+    text-align: center;
+  }
+
+  /* Ajuste das Bijus e Líderes para não vazar da tela */
+  .recompensa-grid-ouro {
+    grid-template-columns: 1fr; /* Transforma em lista no celular */
+    gap: 15px;
+  }
+/* --- MOBILE: corta vazamento lateral e deixa mídia flexível --- */
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+.arte-borda {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.menu-lateral {
+  height: 100vh;
+  height: 100dvh;
+}
+.grid-itens {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.card-item {
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid #ff6400;
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    transition: 0.3s;
+}
+
+.card-item:hover { transform: scale(1.02); border-color: gold; }
+
+.item-foto {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.item-nome { color: gold; font-family: 'Bangers'; margin-top: 10px; }
+.preco { color: #00ff64; font-weight: bold; }
+.descricao { font-size: 13px; color: #eee; }
+
+/* FICHA DE COMPRA */
+.container-copiar {
+  background: rgba(0, 0, 0, 0.85);
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #ff6400;
+  max-width: 450px;
+  margin: 20px auto;
+}
+
+#textoFicha {
+  width: 100%;
+  height: 220px;
+  background: #111;
+  color: #ffd700;
+  border: 1px solid #333;
+  padding: 10px;
+  font-family: monospace;
+  resize: none;
+  font-size: 14px;
+}
+
+.btn-acao {
+  width: 100%;
+  padding: 15px;
+  background: #ff6400;
+  color: white;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.mensagem-sucesso {
+  display: none;
+  color: #00ff64;
+  text-align: center;
+  margin-top: 10px;
+  font-weight: bold;
+}

@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Naruto New Legends</title>
+  <link rel="stylesheet" href="css/estilos.clean.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="fundo-personalizado">
+
+  <input type="checkbox" id="bt_menu" class="bt_menu">
+  <label for="bt_menu" class="menu-icon">&#9776;</label> 
+
+  <nav class="menu-lateral">
+    <div class="logo-menu">
+      <h3>NARUTO RPG</h3>
+    </div>
+    <ul>
+      <li><a href="javascript:void(0)" onclick="trocarAba('Avisos')"> Avisos e ficha </a></li>
+      <li><a href="javascript:void(0)" onclick="trocarAba('Catalogo')">📜 Catalogo de compra</a></li>
+         </ul>
+  </nav>
+
+  <main class="conteudo-principal">
+  <section id="Avisos" class="aba-conteudo active">
+    <div class="banner-inicio">
+       <img src="img/capa.jpg" alt="Banner">
+    </div>
+
+    <div class="apresentacao">
+       <pre class="arte-borda">
+╔════ ≪ •❈• ≫ ════╗
+  Naruto New Legends
+╚════ ≪ •❈• ≫ ════╝</pre>
+
+       <div class="status-rpg">
+          <p><code> Catalogo de compra </code></p>
+          <p><code> como comprar?</code></p>
+       </div>
+
+       <div class="historia-rpg">
+          <p> Para comprar, basta preencher a ficha abaixo e enviar no grupo da loja marcando o <strong>ADM MY</strong>.</p>
+         
+          <p><strong> ficha de compra abaixo</strong></p>
+       </div>
+
+     <div class="secao-ficha">
+            <h2 class="titulo-sessao">📋 Ficha de Compra</h2>
+            <div class="container-copiar">
+                <textarea id="textoFicha" readonly>
+🛒𝔽𝕚𝕔𝕙𝕒 𝕕𝕖 𝕔𝕠𝕞𝕡𝕣𝕒🛒
+
+▬▬⃧⃟ ⃟⎈͜ꦿ⃘੭᳙ᰱ໋❀🛒⧭ᰱ̶〭 
+• Nome do Personagem:
+
+▬▬⃧⃟ ⃟⎈͜ꦿ⃘੭᳙ᰱ໋❀🛒⧭ᰱ̶〭
+• Saldo antes da compra:
+
+▬▬⃧⃟ ⃟⎈͜ꦿ⃘੭᳙ᰱ໋❀🛒⧭ᰱ̶〭
+• Produto:
+
+▬▬⃧⃟ ⃟⎈͜ꦿ⃘੭᳙ᰱ໋❀🛒⧭ᰱ̶〭
+• Saldo após a compra:
+                </textarea>
+                <button class="btn-acao" onclick="copiarFicha()">📋 COPIAR FICHA</button>
+                <p id="avisoCopiado" class="mensagem-sucesso">Copiado com sucesso!</p>
+            </div>
+   
+</section>
+
+<section id="Catalogo" class="aba-conteudo">
+    <div class="loja-header">
+        <h1>𝑳𝒐𝒋𝒂 𝑲𝒏𝒉</h1>
+        <div class="search-container" style="text-align: center; margin: 20px 0;">
+            <input type="text" id="searchInput" onkeyup="searchItem()" placeholder="🔍 Buscar item no catálogo..." 
+            style="width: 80%; padding: 12px; border-radius: 25px; border: 2px solid #ff6400; background: #000; color: #fff;">
+        </div>
+    </div>
+
+    <h2 class="categoria-titulo" style="font-family: 'Bangers'; color: #fff; text-align: center; font-size: 2rem; margin-top: 30px;">⚔️ EQUIPAMENTOS E ARMAS</h2>
+    <div class="grid-itens" id="gridEquipamentos">
+        <div class="card-item">
+            <img src="img/livro.jpg" class="item-foto">
+            <h3 class="item-nome">A Lenda de um ninja determinado</h3>
+            <p class="preco">200 Ryos</p>
+            <p class="descricao">um livro criado por Jiraya (nesse caso ele merece o crédito), não tem muito valor financeiro porém um enorme valor sentimental para todos.</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/alto-falante.png" class="item-foto">
+            <h3 class="item-nome">Alto-Falante Ressonante de Eco</h3>
+            <p class="preco">250k ryos</p>
+            <p class="descricao">Um item com buracos, pode ser equipado no braço direito do indivíduo e permite ao mesmo manipular ondas sonaras, podendo aprender jutsus que ao seu favor fazem o inimigo: ficar temporariamente cego (2 cenas), Tonto (fazendo todos os ataques do indivíduo pacíficos, lentos e fracos) e também pode ser usado para paralizia (requer 5k em genjutsu e o jutsu necessário para aplicar o genjutsu)</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/Arco.png" class="item-foto">
+            <h3 class="item-nome">Arco Simples</h3>
+            <p class="preco">1k Ryos (30 Ryos cada flecha)</p>
+            <p class="descricao">Item utilizado para atirar flechas contra seus inimigos, item esse feito para aqueles que não são bons em combate corpo a corpo e possuem necessidade de manter a luta distante. Ainda bem útil para combates intermediários, podendo ser utilizado como um bastão. Não abuse da "Resistência", em última opção use em combate</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/Argolas-de-captura.png" class="item-foto">
+            <h3 class="item-nome">Argolas de Captura</h3>
+            <p class="preco">200 Ryos cada</p>
+            <p class="descricao">Argolas que após lançadas vão na direção desejada e antes do contato acontecer, ela se abre e fecha rapidamente, de forma que restringem o alvo</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/Atirador-de-dardos.png" class="item-foto">
+            <h3 class="item-nome">Atirador de dardos de injeção</h3>
+            <p class="preco">1k Ryos (200 Ryos por dardo)</p>
+            <p class="descricao">Item em forma de canudo, um pouco mais grosso que um canudo na verdade e tem aagrossura perfeito de um dardo ou injeção, facilitando e acelerando a chegada do dardo no inimigo</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/balista.png" class="item-foto">
+            <h3 class="item-nome">Balista</h3>
+            <p class="preco">20k Ryos (100 Ryos por flecha)</p>
+            <p class="descricao">balista é um lançador móvel de flechas maior que uma pessoa comum que é usado para acertar alvos a longa distância. (uma catapulta que lança flechas em vez de Pedras)</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/besta.png" class="item-foto">
+            <h3 class="item-nome">Besta (arma)</h3>
+            <p class="preco">2k Ryos (50 por Flecha)</p>
+            <p class="descricao">É uma arma com um arco de flechas adaptado a uma das extremidades de uma haste e acionado por um gatilho, o qual projeta virotes - dardos similares a flechas, porém mais curtos.</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/bisturi.png" class="item-foto">
+            <h3 class="item-nome">Bisturi</h3>
+            <p class="preco">100 Ryos</p>
+            <p class="descricao">Um bisturi é um pequeno instrumento de lâmina extremamente afiada destinada a cortar através da pele, tendões e músculos.</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/braceletes.png" class="item-foto">
+            <h3 class="item-nome">Braceletes de Ferro</h3>
+            <p class="preco">200k cada</p>
+            <p class="descricao">(necessário 10k em força e após obter os mesmos, o indivíduo receberá 10 pontos em força a cada 3 dias) Eles podem ser utilizados tanto como uma ferramenta de treinamento quanto como uma arma ofensiva.</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/braço.png" class="item-foto">
+            <h3 class="item-nome">Braço de cabo retrátil</h3>
+            <p class="preco">5k Ryos</p>
+            <p class="descricao">Arma que permite que o usuário lance uma mão de metal que pode agarrar, arrastar e bater no inimigo.</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/broca.png" class="item-foto">
+            <h3 class="item-nome">Braço de Broca</h3>
+            <p class="preco">8k Ryos</p>
+            <p class="descricao">Dispositivo de perfuração mecânica. Pode ser usado para escavar buracos e atacar o adversário inesperadamente.</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/bo.png" class="item-foto">
+            <h3 class="item-nome">Bö</h3>
+            <p class="preco">300 Ryos</p>
+            <p class="descricao">Bastão simples, um cabo de madeira ou bambu reto, muitas vezes flexível.</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/cabaca.png" class="item-foto">
+            <h3 class="item-nome">Cabaça de areia</h3>
+            <p class="preco">500 Ryos</p>
+            <p class="descricao">Bem útil para aqueles que manipulam areia, pode-se ser utilizada também como uma areia reserva.</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/dakö.png" class="item-foto">
+            <h3 class="item-nome">Daķö</h3>
+            <p class="preco">300 Ryos</p>
+            <p class="descricao">(Único) Uma lança em forma de cruz que se pode esticar-se, contrair-se e dobrar-se.</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/escopo.png" class="item-foto">
+            <h3 class="item-nome">Escopo</h3>
+            <p class="preco">2k Ryos</p>
+            <p class="descricao">Dispositivo permite que ele veja seus alvos à distância e lhe permite encontrar o intervalo entre ele e outros objetos.</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/retrátil.png" class="item-foto">
+            <h3 class="item-nome">Escudo simples</h3>
+            <p class="preco">200 Ryos</p>
+            <p class="descricao">Muito útil para defender shurikens, kunais e dardos mas não jutsus elementais.</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/katana normal.png" class="item-foto">
+            <h3 class="item-nome">Katanas</h3>
+            <p class="preco">1k Ryos</p>
+            <p class="descricao">Um tipo de espada, Ótimas para realizar cortes rápidos e precisos.</p>
+        </div>
+        
+        <!-- Itens adicionados conforme lista do administrador -->
+        <div class="card-item">
+            <img src="img/bola-de-papel.png" class="item-foto">
+            <h3 class="item-nome">Bola de papéis bombas</h3>
+            <p class="preco">500 Ryos cada</p>
+            <p class="descricao">Esta é simplesmente uma porção de papéis explosivos envoltos em uma bola e usado da mesma maneira que uma bala de canhão com um efeito explosivo. Eles são disparados a partir de canhões e são capazes de causar grandes danos. Também é usado como minas submarinas.</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/gelo.png" class="item-foto">
+            <h3 class="item-nome">Bomba de gelo</h3>
+            <p class="preco">600 Ryos cada</p>
+            <p class="descricao">Estas bombas são esferas cristalinas e azuis que quando detonadas, lançam uma torrente de espinhos de gelo.</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/baner.jpg" class="item-foto">
+            <h3 class="item-nome">Bomba de luz</h3>
+            <p class="preco">100 Ryos cada</p>
+            <p class="descricao">Bombas de Luz (光玉, Hikaridama) são usadas para diversas coisas, criando uma luz ofuscante quando detonada.</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/pimenta.png" class="item-foto">
+            <h3 class="item-nome">Bomba de pimenta</h3>
+            <p class="preco">400 Ryos cada</p>
+            <p class="descricao">Estes são os itens usados pelos aldeões da Vila da Árvore Genjutsu para repelir o genjutsu causada pela floresta circundante. Como a área é cercada por árvores que naturalmente lançam genjutsu nos moradores, por isso criaram estas bombas, a fim de ajudá-los a quebrar a técnica. Ela também é capaz de quebrar genjutsu feito pelas pessoas, em contato com os olhos, o gás tira a pessoa do genjutsu, porém, faz os olhos arderem</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/fundo.png" class="item-foto">
+            <h3 class="item-nome">Brahma</h3>
+            <p class="preco">1B Ryos</p>
+            <p class="descricao">Inicialmente, o usuário coloca o selo sobre o local do ferimento e espera alguns segundos. Depois disto, o selo começa a se ativar sozinho, liberando uma luz verde fluorescente muito intensa. No mesmo momento em que a luz é liberada, o ferimento é curado instantaneamente. Após a luz cessar, o ferimento é curado ou o utilizador recebe sua vitalidade novamente.</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/invocação.png" class="item-foto">
+            <h3 class="item-nome">Cachimbo de Bolhas</h3>
+            <p class="preco">3k Ryos</p>
+            <p class="descricao">O soprador de bolhas foi utilizado por Utakata para que ele executasse seu Ninjutsu de Bolha de Sabão. Era dourado em sua cor, dobrado no meio e tinha um pendão anexado. O soprador podia criar bolhas para muitas finalidades e também poderia ser usado como uma arma branca, já mostrado como muito resistente, sendo capaz de bloquear uma kunai sem nenhum dano sofrido aparente. Com Utakata sendo o usuário, o soprador melhorava e ajudava na manipulação das técnicas do Saiken.</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/cogumelo.png" class="item-foto">
+            <h3 class="item-nome">Cogumelo de moldagem</h3>
+            <p class="preco">50 Ryos cada</p>
+            <p class="descricao">O Cogumelo de Modelagem (黴びる茸, Kabirudake) é um tipo de cogumelo que se multiplica quando deixado em uma razão. A Gangue da Rota do Silêncio vendeu o cogumelo em sua forma inicial para Naruto, para que o cogumelo infectasse o navio. No primeiro momento, ele se parece com um cogumelo pequeno comum, mas após uma noite, ele libera seus esporos, fazendo com que os cogumelos se multipliquem e, ficando com várias cores. Quando uma pessoa come os cogumelos, ela fica com cara roxa, e os cogumelos se espalham pelo seu corpo. Alguns cogumelos sugam chakra, como o Yamato. Quando as pessoas comem, elas ficam inconscientes sobre suas ações, como aconteceu com Naruto e Guy. Após o efeito dos cogumelos terem desaparecido, Naruto e Guy tiveram amnésia.</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/retrátil.png" class="item-foto">
+            <h3 class="item-nome">Escudo Retrátil</h3>
+            <p class="preco">15k Ryos</p>
+            <p class="descricao">Fechado, parece uma pulseira. Uma vez aberto, pode repelir todos os tipos de armas convencionais, tais como kunai ou shuriken.</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/Sasuke.png" class="item-foto">
+            <h3 class="item-nome">Kusanagi Sasuke</h3>
+            <p class="preco">250k Ryos</p>
+            <p class="descricao">Esta não tem os mesmos recursos da de Orochimari mas consegue transmitir o chidori sobre sua lâmina, sendo capaz de cortar tudo que toca, até mesmo aço.</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/selo.png" class="item-foto">
+            <h3 class="item-nome">Etiqueta de selamento</h3>
+            <p class="preco">3k Ryos</p>
+            <p class="descricao">Ao colocar uma etiqueta de selamento sobre um oponente ou objeto, um selo substancial é gerado que impede que o artigo em questão seja invocado, com o contato a etiqueta original permanece intacta.</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/foice3.png" class="item-foto">
+            <h3 class="item-nome">Foice de lâmina tripla (retrátil)</h3>
+            <p class="preco">5k Ryos</p>
+            <p class="descricao">Uma foice com três lâminas, o cabo desta pode se esticar e voltar ao normal por meio de um cabo de aço, ligado ao braço do usuário e ao cabo</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/foice.png" class="item-foto">
+            <h3 class="item-nome">Foice</h3>
+            <p class="preco">1k Ryos</p>
+            <p class="descricao">Uma foice comum, um cabo longo com uma lâmina curva na ponta.</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/Garra.png" class="item-foto">
+            <h3 class="item-nome">Garra</h3>
+            <p class="preco">2k Ryos</p>
+            <p class="descricao">Ultra resistente, semelhante ao modelo da do Wolverine porém, se equipa segurando uma espécie de soco inglês que é ligada a mesma.</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/Guarda.png" class="item-foto">
+            <h3 class="item-nome">Guarda-Chuva</h3>
+            <p class="preco">500 Ryos</p>
+            <p class="descricao">Pode ser usado como escudo e para atrasar quedas, também atirar dardos pela ponta.</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/Hiramekarei.png" class="item-foto">
+            <h3 class="item-nome">Himarekarei</h3>
+            <p class="preco">300k Ryos</p>
+            <p class="descricao">Os dois buracos na ponta da lâmina são capazes de emitir chakra, que pode aparentemente ser usado para formar várias armas incluindo um martelo ou uma longa espada. O tamanho da arma resultante parece depender da quantidade de chakra armazenado, o que significa que quanto mais chakra maior irá ficar a arma. No entanto, independentemente das dimensões da arma a emissão de chakra ocorrerá em uma velocidade espantosa.</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/joryo.png" class="item-foto">
+            <h3 class="item-nome">Jöryö</h3>
+            <p class="preco">20 Ryos</p>
+            <p class="descricao">O Jōhyō se consiste de uma longa corda, normalmente possui vários metros de comprimento, com uma alça presa a um fim, e um ferrão de metal ligado a outro, agindo como um peso que permite ao usuário para lançar o dardo para fora em um alvo de longo alcance para vinculá-las em seguida, bobina-los ou realizar um ataque contra eles.</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/kunai.png" class="item-foto">
+            <h3 class="item-nome">Kunai</h3>
+            <p class="preco">10 Ryos</p>
+            <p class="descricao">A Kunai assim como a shuriken, é uma das ferramentas mais utilizadas na série Naruto. É uma espécie de Adaga negra com o objetivo de pressionar e esfaquear, pode também causar danos ao ser lançada, apesar de não ser esse o seu objetivo. O seu tamanho é semelhante ao tamanho de uma mão.</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/bingo.png" class="item-foto">
+            <h3 class="item-nome">Livro Bingo</h3>
+            <p class="preco">20k Ryos</p>
+            <p class="descricao">Os Livros Bingo são livros pretos usados por shinobi, cuja contêm toda e qualquer informação sobre a Lista Negra Shinobi e de seus alvos. Há várias versões dos Livros Bingo, sendo as mais comuns as que se baseiam das Aldeias Ocultas.</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/mascara.png" class="item-foto">
+            <h3 class="item-nome">Máscara Shinigami</h3>
+            <p class="preco">300k Ryos</p>
+            <p class="descricao">Uma máscara que se assemelha a face do Shinigami, que residia em uma parede dentro do Templo Armazenador de Máscara do Clã Uzumaki localizado na periferia de Konohagakure, juntamente com outras 26 máscaras parecidas. Ela permite que o usuário invoque o Shinigami por possuir o corpo do usuário. Isso permite que o usuário execute o Selo Consumidor do Demônio Morto: Liberar.</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/nunchako.png" class="item-foto">
+            <h3 class="item-nome">Nunchaku</h3>
+            <p class="preco">250 Ryos</p>
+            <p class="descricao">Arma branca que consiste em uma corrente e em suas duas pontas uma espécie de bastão curto.</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/Nuibari.png" class="item-foto">
+            <h3 class="item-nome">Nuibari</h3>
+            <p class="preco">300k Ryos</p>
+            <p class="descricao">(縫い針; "Agulha Costuradora") é uma das espadas dos Sete Espadachins da Névoa, empunhada especialmente por Kushimaru Kuriarare. A própria lâmina assume a forma de uma estreita "Espada Longa" (長刀, chōtō) que muito se assemelha a uma grande agulha, com um comprido fio de aço extremamente fino localizado na base do seu punho. Esta espada é dita possuir a capacidade de furar tudo e unir, demonstrado por meio de sua capacidade de penetrar facilmente alvos múltiplos em um único golpe e depois literalmente ponteá-los simplesmente usando o fio. Um usuário capaz pode até mesmo jogar a espada com a intenção de perfurar vários inimigos antes de pegar a agulha no outro lado e repetir o processo em diferentes ângulos, a fim de criar pontos de cadáveres com o fio passando por tudo, efetivamente criando fileiras de corpos em vários pontos ao longo do comprimento do fio.</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/gato.png" class="item-foto">
+            <h3 class="item-nome">Orelhas de Gato</h3>
+            <p class="preco">20 Ryos</p>
+            <p class="descricao">Esta ferramenta foi dada a Naruto, Sasuke, Sakura e para esgueirarem-se para a Fortaleza de Gato de Nekomata. Essas ferramentas exclusivas permitem que o usuário interaja com outros gatos como se fossem gatos em si, mas se as orelhas caíssem, eles iriam voltar a ser distinguíveis de gatos.</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/perfume.png" class="item-foto">
+            <h3 class="item-nome">Perfume Da Flor Da Lua Nova</h3>
+            <p class="preco">30k Ryos</p>
+            <p class="descricao">Este perfume dissipa genjutsu e hipnose. Naruto usou esse perfume em Tsukino para dissipar o Jibakugan dela.</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/pergaminhos.png" class="item-foto">
+            <h3 class="item-nome">Pergaminhos</h3>
+            <p class="preco">30 Ryos cada</p>
+            <p class="descricao">O pergaminho também pode ser usado por ninjas para invocar criaturas, pessoas ou itens para seu auxílio, tornando o transporte desses elementos mais fácil, provendo mais opções em uma missão. Algumas técnicas podem também ser armazenadas neles.</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/lua vermelha.png" class="item-foto">
+            <h3 class="item-nome">Pergaminho da lua vermelha</h3>
+            <p class="preco">Restrito</p>
+            <p class="descricao">O Pergaminho da Lua Vermelha é um pergaminho especial que pode acabar com o Mundo do Genjutsu</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/contrato.png" class="item-foto">
+            <h3 class="item-nome">Pergaminho de contrato</h3>
+            <p class="preco">10k Ryos</p>
+            <p class="descricao">Quantos mais tiver, mais invocações poderá ter. O limite para quem não tem nenhum é 3.</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/invocação.png" class="item-foto">
+            <h3 class="item-nome">Pergaminho de invocação</h3>
+            <p class="preco">300 Ryos cada</p>
+            <p class="descricao">Trata-se de um pergaminho com uma fórmula de invocação pré-gravada em seu interior, permitindo que seu portador invoque o ser associado à formula, como animais ou até mesmo clones das sombras. A invocação de animais normalmente exige o uso do sangue usado no contrato, mas caso o invocador não tenha estabelecido o contrato, ele pode utilizar o sangue de alguém que já o fez.</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/pomada.png" class="item-foto">
+            <h3 class="item-nome">Pomada secreta do clã Hyuga</h3>
+            <p class="preco">0 Ryos Hyugas, 200 Ryos 1 uso os demais clãs</p>
+            <p class="descricao">Uma pomada feita por Hyugas que cura e cicatriza quase que instantaneamente as feridas.</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/pilula.png" class="item-foto">
+            <h3 class="item-nome">Pílulas de genjutsu</h3>
+            <p class="preco">900 Ryos cada</p>
+            <p class="descricao">Essas pílulas especiais foram desenvolvidas por Orochimaru. Uma vez ingeridas, as pílulas irão lançar um genjutsu sobre o alvo que paralisa o corpo. As drogas também afetam a mente do alvo, até certo ponto, como Gyūki teve problemas para se lembrar de seu último tumulto após Blue B tomar as pílulas.</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/radio.png" class="item-foto">
+            <h3 class="item-nome">Rádio</h3>
+            <p class="preco">400 Ryos cada</p>
+            <p class="descricao">São como fones de ouvidos que permitem se comunicar com outros usuários que estejam na mesma frequência.</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/sebon.png" class="item-foto">
+            <h3 class="item-nome">Senbon</h3>
+            <p class="preco">30 Ryos cada</p>
+            <p class="descricao">Pequenas agulhas.</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/Shibuki.png" class="item-foto">
+            <h3 class="item-nome">Shibuki</h3>
+            <p class="preco">600k Ryos</p>
+            <p class="descricao">A Shibuki (飛沫; "Respingo") é uma das espadas dos Sete Espadachins Ninja da Névoa, empunhada por Jinpachi Munashi. A lâmina utiliza vários papéis explosivos, contidos dentro de um deslocamento substancial de modo que incorpora explosões junto ao Kenjutsu do usuário, ganhando o título de "Espada Explosiva" (爆刀, bakutō).</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/shuriken.png" class="item-foto">
+            <h3 class="item-nome">Shuriken</h3>
+            <p class="preco">10 Ryos cada</p>
+            <p class="descricao">Shuriken (手裏剣), assim como a kunai, é uma das armas mais básicas vistas na série Naruto. Elas são estrelas afiadas com quatro pontas de metal, úteis para jogar. Elas também podem ser utilizadas para o combate próximo, mas não são muito eficientes. Embora pequena, ela pode ser usada para distrair, prender o inimigo no solo, ou, precisando o suficiente, pode matar ou incapacitar um inimigo. Ela tem um círculo aberto no centro, útil para agarrar com um dedo, para evitar o corte de si mesmo, ou para colocá-la através de um fio. O círculo também é benéfico para a aerodinâmica total da arma, garantindo trajetórias mais precisas.</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/tanto.png" class="item-foto">
+            <h3 class="item-nome">Tantö</h3>
+            <p class="preco">700 Ryos</p>
+            <p class="descricao">A Tantō é simplesmente uma pequena katana.</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/Tobishachimaru.png" class="item-foto">
+            <h3 class="item-nome">Tobishachimaru</h3>
+            <p class="preco">300k Ryos</p>
+            <p class="descricao">O Tobishachimaru (飛鯱丸, Tobishachimaru) é um navio voador projetado por Tazuna e criado pelos carpinteiros do País das Ondas. Esperava-se que ele fosse o primeiro de uma frota de navios voadores, o que iria revolucionar o transporte de mercadorias entre os países. Batizado com o nome orca, o Tobishachimaru tem 223 metros de comprimento, 34 metros de diâmetro, tem uma velocidade máxima de 70 km/h, e destina-se a voar a uma altitude de 5.000 metros. Ele usa balões cheios de hélio para flutuação e seis hélices para o movimento e direção. Além da carga e da tripulação, ele pode acomodar cerca de sessenta passageiros, em cujo benefício o Tobishachimaru é equipado com uma cozinha, compartimento de jantar, e outras amenidades.</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/veneno.png" class="item-foto">
+            <h3 class="item-nome">Veneno</h3>
+            <p class="preco">2k Ryos</p>
+            <p class="descricao">Um frasco com 1 dose para desmaiar o alvo.</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/veneno.png" class="item-foto">
+            <h3 class="item-nome">Veneno de Sasori</h3>
+            <p class="preco">5k Ryos</p>
+            <p class="descricao">Um frasco com dose para matar uma pessoa.</p>
+        </div>
+    </div>
+
+    <h2 class="categoria-titulo" style="font-family: 'Bangers'; color: gold; text-align: center; font-size: 2rem; margin-top: 30px;">💎 ITENS LENDÁRIOS</h2>
+    <div class="grid-itens" id="gridLendarios">
+        <div class="card-item lendario">
+            <img src="img/benihisago.png" class="item-foto">
+            <h3 class="item-nome">Benihisago</h3>
+            <p class="preco">5B Ryos</p>
+            <p class="descricao">(Arma lendária, req 30k Ninjutsu). Pode selar pessoas. Se o alvo disser a palavra que mais falou na vida ou ficar quieto, é absorvido.</p>
+        </div>
+
+        <div class="card-item lendario">
+            <img src="img/bashosen.png" class="item-foto">
+            <h3 class="item-nome">Bashösen</h3>
+            <p class="preco">5B Ryos</p>
+            <p class="descricao">(Arma lendária, req 30k ninjutsu). Leque capaz de gerar todas as cinco naturezas de chakra elementais básicas.</p>
+        </div>
+
+        <div class="card-item lendario">
+            <img src="img/gunbai.png" class="item-foto">
+            <h3 class="item-nome">Gunbai</h3>
+            <p class="preco">500k Ryos (250k Uchihas)</p>
+            <p class="descricao">Reflete ataques instantâneamente e cria rajadas de vento que lançam vários inimigos longe.</p>
+        </div>
+
+        <div class="card-item lendario">
+            <img src="img/kusanagi orochi.png" class="item-foto">
+            <h3 class="item-nome">Kusanagi Orochi</h3>
+            <p class="preco">900k Ryos</p>
+            <p class="descricao">Corta tudo que toca, exceto manto de jinchurikes. Pode ser controlada telepaticamente.</p>
+        </div>
+    </div>
+
+    <h2 class="categoria-titulo" style="font-family: 'Bangers'; color: #fff; text-align: center; font-size: 2rem; margin-top: 30px;">💊 CONSUMÍVEIS E UTILITÁRIOS</h2>
+    <div class="grid-itens" id="gridConsumiveis">
+        <div class="card-item">
+            <img src="img/fumaça.png" class="item-foto">
+            <h3 class="item-nome">Bomba de fumaça</h3>
+            <p class="preco">100 Ryos cada</p>
+            <p class="descricao">Pequenas esferas que liberam uma cortina de fumaça para cegar oponentes.</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/militar.png" class="item-foto">
+            <h3 class="item-nome">Pílulas de ração militar</h3>
+            <p class="preco">1,500 Ryos cada</p>
+            <p class="descricao">Reabastecem o chakra e permitem lutar por três dias e três noites sem descanso.</p>
+        </div>
+
+        <div class="card-item">
+            <img src="img/agua.png" class="item-foto">
+            <h3 class="item-nome">Água do Herói</h3>
+            <p class="preco">300k Ryos</p>
+            <p class="descricao">Aumento de dez vezes no nível de chakra, força e Ninjutsu temporariamente.</p>
+        </div>
+    </div>
+</section>
+
+    
+
+
+  </main>
+  
+  <footer class="rodape-creditos">
+    <p>Site desenvolvido por <strong>Myllena</strong></p>
+    <p>Mais informações: <a href="https://wa.me/5581986010094?text=Olá!%20Vim%20porque%20quero%20mais%20informações%20de%20orçamento%20para%20um%20site%20para%20mim.">(81) 98601-0094</a></p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
